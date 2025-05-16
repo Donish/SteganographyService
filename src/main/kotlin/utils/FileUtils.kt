@@ -14,4 +14,7 @@ object FileUtils {
 
     fun BufferedImage.copyImage(): BufferedImage =
         BufferedImage(width, height, type).apply { graphics.drawImage(this@copyImage, 0, 0, null) }
+
+    fun File.stegoCopy(content: ByteArray): File =
+        File(parentFile, nameWithoutExtension + "_stego." + extension).also { it.writeBytes(content) }
 }

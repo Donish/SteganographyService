@@ -62,3 +62,7 @@ Q.idea/sonarlint/securityhotspotstore/a/3/a3af04e5bd99db360602bad706dbcb51324858
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+V
+&src/main/kotlin/steganography/Stego.kt,3\a\3a84d3bbf8bb3051a46d8fb04e014601be6157f8
+Y
+)src/main/kotlin/steganography/PDFStego.kt,1\5\15661341e52bc503d0cad22aa9103c7b67945b62

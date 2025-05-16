@@ -1,5 +1,7 @@
+import frontend.createUi
 import steganography.SteganographyService
 import utils.FileUtils
+import javax.swing.SwingUtilities
 
 fun main() {
 //    SwingUtilities.invokeLater { createUi() }
@@ -9,7 +11,7 @@ fun main() {
 fun some() {
     val loginSecret = "this_secret"
     val stegoService = SteganographyService()
-    val sourceFile = FileUtils.getResourceFile(fileName = "video.mp4")
+    val sourceFile = FileUtils.getResourceFile(fileName = "song.mp3")
 
 
     stegoService.embedSecret(
