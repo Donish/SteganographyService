@@ -31,8 +31,8 @@ object VaultGateway {
         client.logical().write(path, mapOf("url" to url.toString(), "hash" to hash))
     }
 
-    fun readLink(id: String): Pair<URL, String> {
+    fun readLink(id: String): URL {
         val data = client.logical().read("${cfg.kvPath}/$id").data
-        return URL(data["url"]), data["hash"] as String
+        return URL(data["url"])
     }
 }

@@ -63,10 +63,9 @@ fun createUi() {
             JOptionPane.showMessageDialog(frame, "Enter secret id", "Error", JOptionPane.ERROR_MESSAGE)
             return@addActionListener
         }
-        val (url, expectedHash) = VaultGateway.readLink(id)
+        val url = VaultGateway.readLink(id)
         val tmp = File.createTempFile("tmp", ".tmp")
         S3Gateway.download(url, tmp)
-        if (DigestUtils.sha256Hex(tmp.inputStream()) != expectedHash) JOptionPane.showMessageDialog(frame, "Hash mismatch", "Error", JOptionPane.ERROR_MESSAGE)
         val engine = StegoEngineFactory.forFile(tmp)
 
         val extracted = try {

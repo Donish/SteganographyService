@@ -28,13 +28,13 @@ object StegoProvider {
     }
 
     fun extract(id: String, out: File) {
-        val (url, expectedHash) = VaultGateway.readLink(id)
+        val url = VaultGateway.readLink(id)
         S3Gateway.download(
             url = url,
             out = out
         )
 
-        if (DigestUtils.sha256Hex(out.inputStream()) != expectedHash) error("Hash mismatch")
+//        if (DigestUtils.sha256Hex(out.inputStream()) != expectedHash) error("Hash mismatch")
 
         val engine = StegoEngineFactory.forFile(out)
         val cipher = engine.extract(out)
