@@ -1,15 +1,12 @@
 package steganography
 
 import parsers.Mp3Parser
-import parsers.Mp4Parser
 import utils.Constants.RESOURCES
 import utils.Constants.RESOURCES_ERROR_MSG
-import utils.ByteUtils.toInt
 import utils.ByteUtils.lastIndexOfSlice
 import utils.Extensions
 import utils.FileUtils.copyImage
 import java.io.File
-import java.nio.ByteBuffer
 import java.nio.charset.StandardCharsets
 import java.util.Base64
 import javax.imageio.ImageIO
@@ -181,49 +178,5 @@ class SteganographyService {
 
         val base64 = actualCommentBytes.toString(Charsets.ISO_8859_1)
         return String(Base64.getDecoder().decode(base64), Charsets.UTF_8)
-    }
-
-    // MP4 stego no work todo
-    private fun embedInMp4(secret: String, input: File, output: File) {
-        val bytes = input.readBytes()
-        val freeAtomIndex = Mp4Parser.findFreeAtomIndex(bytes)
-        if (freeAtomIndex == -1) {
-            throw IllegalStateException("Атом 'free' не найден в файле. Встраивание невозможно.")
-        }
-
-        val secretBase64 = Base64.getEncoder().encodeToString(secret.toByteArray())
-        val originalSize = ByteBuffer.wrap(bytes, freeAtomIndex, 4).int
-        val maxPayloadSize = originalSize - 8
-
-        val secretBytes = secretBase64.toByteArray()
-        if (secretBytes.size > maxPayloadSize) {
-            throw IllegalArgumentException("Секрет слишком велик для атома 'free'. Максимум: $maxPayloadSize байт")
-        }
-
-        val newFreeAtomPayload = secretBytes + ByteArray(maxPayloadSize - secretBytes.size) { 0 }
-        val newBytes = bytes.copyOf()
-        System.arraycopy(newFreeAtomPayload, 0, newBytes, freeAtomIndex + 8, newFreeAtomPayload.size)
-
-        output.writeBytes(newBytes)
-    }
-
-    private fun extractFromMp4(input: File): String {
-        val bytes = input.readBytes()
-        val atomType = "@cmt".toByteArray()
-
-        var index = 0
-        while (index < bytes.size - 8) {
-            val size = bytes.copyOfRange(index, index + 4).toInt()
-            val type = bytes.copyOfRange(index + 4, index + 8)
-
-            if (type.contentEquals(atomType)) {
-                val content = bytes.copyOfRange(index + 8, index + size)
-                return String(Base64.getDecoder().decode(content), Charsets.UTF_8)
-            }
-
-            index += size
-        }
-
-        throw IllegalStateException("Atom @cmt not found in MP4")
     }
 }

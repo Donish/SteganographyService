@@ -1,4 +1,8 @@
 vault:
-  address: "http://127.0.0.1:8200"
-  token: "hvs.rCws66GJpduf1gYa3g5TPKJ7"
-  secretPath: "stego/image"
+  url: "http://127.0.0.1:8200"
+  token: "root"
+  transitKey: "stego-key"
+  kvPath: "secret/files"
+s3:
+  bucket: "stego-files"
+  region: "eu-central-1"

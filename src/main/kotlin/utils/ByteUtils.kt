@@ -1,5 +1,10 @@
 package utils
 
+import java.io.File
+import java.io.OutputStream
+import java.security.DigestOutputStream
+import java.security.MessageDigest
+
 object ByteUtils {
 
     fun Int.toByteArray(length: Int): ByteArray {

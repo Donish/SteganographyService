@@ -1,12 +1,7 @@
 
-ukotlin:S1144»"/Remove this unused private "embedInMp4" method.(¡Í»µ8ÉÌê2J$753330ee-d442-40ca-997a-6233c5896a69
-~kotlin:S1144Ò"3Remove this unused private "extractFromMp4" method.(Œ²½ùÿÿÿÿ8ƒÉÌê2J$8f2112ab-c5fe-4a29-851f-72df15a64014
-|kotlin:S1135"2Complete the task associated to this TODO comment.(‹Ûäƒúÿÿÿÿ8òñİšé2J$246cb4b9-db00-44a7-a4aa-6ef452ac944f
-}kotlin:S1135º"2Complete the task associated to this TODO comment.(«‰‰·úÿÿÿÿ8‘ÉÌê2J$ec8f950b-8d6a-41c3-89aa-67e822538e02
-Ÿkotlin:S6532"UReplace this if expression with check(resourcesDir.exists()) { RESOURCES_ERROR_MSG }.(Çƒ¤¾ÿÿÿÿÿ8õñİšé2J$065306fa-32e4-437e-bcc4-c23bf138d873
-—kotlin:S6532t"RReplace this if expression with check(eofIndex != -1) { "%EOF not found in PDF" }.(×Óâ’8õñİšé2J$4209f009-592e-49db-962d-ec9cafca6bea
-¹kotlin:S6532Š"íReplace this if expression with require(!(originalBytes.size < 10 || originalBytes[0] != 'I'.code.toByte() ||
-            originalBytes[1] != 'D'.code.toByte() || originalBytes[2] != '3'.code.toByte())) { "No ID3v2 header in MP3 file" }.(Ëæ¹«üÿÿÿÿ8’â–›é2J$067dc469-23e6-442b-8228-f68338431297
-Ìkotlin:S6532¢"€Replace this if expression with require(bytes.take(3).toByteArray().contentEquals(id3Header)) { "No ID3v2 header in MP3 file" }.(¨ùçùÿÿÿÿ8™ÉÌê2J$186cd0f4-8fbe-4b6f-bc66-72c1a7361f7c
-ëkotlin:S6532¾"ŸReplace this if expression with check(freeAtomIndex != -1) { "ĞÑ‚Ğ¾Ğ¼ 'free' Ğ½Ğµ Ğ½Ğ°Ğ¹Ğ´ĞµĞ½ Ğ² Ñ„Ğ°Ğ¹Ğ»Ğµ. Ğ’ÑÑ‚Ñ€Ğ°Ğ¸Ğ²Ğ°Ğ½Ğ¸Ğµ Ğ½ĞµĞ²Ğ¾Ğ·Ğ¼Ğ¾Ğ¶Ğ½Ğ¾." }.(šÓ¯×ûÿÿÿÿ8šÉÌê2J$22cd0230-276a-4798-8e66-f004960da0b1
-Škotlin:S6532Ç"¾Replace this if expression with require(secretBytes.size <= maxPayloadSize) { "Ğ¡ĞµĞºÑ€ĞµÑ‚ ÑĞ»Ğ¸ÑˆĞºĞ¾Ğ¼ Ğ²ĞµĞ»Ğ¸Ğº Ğ´Ğ»Ñ Ğ°Ñ‚Ğ¾Ğ¼Ğ° 'free'. ĞœĞ°ĞºÑĞ¸Ğ¼ÑƒĞ¼: $maxPayloadSize Ğ±Ğ°Ğ¹Ñ‚" }.(–Î•‰ùÿÿÿÿ8šÉÌê2J$07fe3bb3-f3e2-437d-bd5a-2513f8a574b1
+|kotlin:S1135"2Complete the task associated to this TODO comment.(‹Ûäƒúÿÿÿÿ8“œ¶ğï2J$dc274407-ea3a-4b67-95e9-178ef93fb213
+Ÿkotlin:S6532"UReplace this if expression with check(resourcesDir.exists()) { RESOURCES_ERROR_MSG }.(Çƒ¤¾ÿÿÿÿÿ8™œ¶ğï2J$2eae8f32-0533-4cf4-a2eb-33165f34de4f
+—kotlin:S6532q"RReplace this if expression with check(eofIndex != -1) { "%EOF not found in PDF" }.(×Óâ’8™œ¶ğï2J$2f23c137-710f-49c8-9994-99e2153315a7
+¹kotlin:S6532‡"íReplace this if expression with require(!(originalBytes.size < 10 || originalBytes[0] != 'I'.code.toByte() ||
+            originalBytes[1] != 'D'.code.toByte() || originalBytes[2] != '3'.code.toByte())) { "No ID3v2 header in MP3 file" }.(Ëæ¹«üÿÿÿÿ8šœ¶ğï2J$d4c9959d-551d-4bd9-bcb2-93dc78917809
+Ìkotlin:S6532Ÿ"€Replace this if expression with require(bytes.take(3).toByteArray().contentEquals(id3Header)) { "No ID3v2 header in MP3 file" }.(¨ùçùÿÿÿÿ8šœ¶ğï2J$34c3b3f3-44c5-4671-9bd7-c506f3a49516

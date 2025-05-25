@@ -9,5 +9,4 @@ enum class Extensions(val value: String) {
     PNG("png"),
     PDF("pdf"),
     MP3("mp3"),
-//    MP4("mp4")
 }

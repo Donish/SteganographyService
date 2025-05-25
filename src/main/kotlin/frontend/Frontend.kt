@@ -1,5 +1,9 @@
 package frontend
 
+import config.S3Gateway
+import config.VaultGateway
+import factories.StegoEngineFactory
+import org.apache.commons.codec.digest.DigestUtils
 import steganography.SteganographyService
 import java.awt.BorderLayout
 import java.awt.event.ActionEvent
@@ -16,13 +20,13 @@ fun createUi() {
 
     val fileLabel = JLabel("File is not selected")
     val secretField = JTextField(30)
+    val idField = JTextField(30)
     val resultArea = JTextArea(5, 40).apply { isEditable = false }
 
     val chooseButton = JButton("Select file")
     val embedButton = JButton("Embed secret")
     val extractButton = JButton("Extract secret")
     var selectedFile: File? = null
-    val steganographyService = SteganographyService()
 
     chooseButton.addActionListener {
         val selector = JFileChooser()
@@ -41,12 +45,12 @@ fun createUi() {
             JOptionPane.showMessageDialog(frame, "Select file and enter your secret", "Error", JOptionPane.ERROR_MESSAGE)
             return@addActionListener
         }
+        val engine = StegoEngineFactory.forFile(file)
 
-//        val outFile = File(file.parent, "output-${file.name}")
         try {
-            steganographyService.embedSecret(
+            engine.embed(
                 secret = secret,
-                inputFile = file
+                carrier = file
             )
         } catch (e: Exception) {
             JOptionPane.showMessageDialog(frame, e.message, "Error", JOptionPane.ERROR_MESSAGE)
@@ -56,14 +60,19 @@ fun createUi() {
     }
 
     extractButton.addActionListener {
-        val file = selectedFile
-        if (file == null) {
-            JOptionPane.showMessageDialog(frame, "Select file", "Error", JOptionPane.ERROR_MESSAGE)
+        val id = idField.text
+        if (id.isBlank()) {
+            JOptionPane.showMessageDialog(frame, "Enter secret id", "Error", JOptionPane.ERROR_MESSAGE)
             return@addActionListener
         }
+        val (url, expectedHash) = VaultGateway.readLink(id)
+        val tmp = File.createTempFile("tmp", ".tmp")
+        S3Gateway.download(url, tmp)
+        if (DigestUtils.sha256Hex(tmp.inputStream()) != expectedHash) JOptionPane.showMessageDialog(frame, "Hash mismatch", "Error", JOptionPane.ERROR_MESSAGE)
+        val engine = StegoEngineFactory.forFile(tmp)
 
         val extracted = try {
-            steganographyService.extractSecret(inputFile = file)
+            engine.extract(tmp)
         } catch (e: Exception) {
             "Error: ${e.message}"
         }

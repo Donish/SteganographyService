@@ -1,0 +1,4 @@
+
+¸kotlin:S6532"íReplace this if expression with require(!(originalBytes.size < 10 || originalBytes[0] != 'I'.code.toByte() ||
+            originalBytes[1] != 'D'.code.toByte() || originalBytes[2] != '3'.code.toByte())) { "No ID3v2 header in MP3 file" }.(Ëæ¹«üÿÿÿÿ8ÐÕí2J$4a398240-83ca-4d04-90af-8cdbbb5a7bdc
+Ëkotlin:S6532#"€Replace this if expression with require(bytes.take(3).toByteArray().contentEquals(id3Header)) { "No ID3v2 header in MP3 file" }.(¨ùçùÿÿÿÿ8ñ¾“Õí2J$703af84a-2850-42c6-a784-f86583b7b343
