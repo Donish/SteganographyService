@@ -7,6 +7,8 @@ import org.apache.commons.codec.digest.DigestUtils
 import java.awt.BorderLayout
 import java.awt.event.ActionEvent
 import java.io.File
+import java.time.LocalDate
+import java.util.UUID
 import javax.swing.*
 import javax.swing.filechooser.FileNameExtensionFilter
 
@@ -46,10 +48,15 @@ fun createUi() {
         val engine = StegoEngineFactory.forFile(file)
 
         try {
-            engine.embed(
+            val tmp = engine.embed(
                 secret = secret,
                 carrier = file
             )
+            val id = UUID.randomUUID().toString()
+            val key = "${LocalDate.now()}/$id.${file.extension}"
+            val url = S3Gateway.upload(tmp, key)
+            val hash = tmp.inputStream().use { DigestUtils.sha256Hex(it) }
+            VaultGateway.storeLink(id, url, hash)
         } catch (e: Exception) {
             JOptionPane.showMessageDialog(frame, e.message, "Error", JOptionPane.ERROR_MESSAGE)
         }
