@@ -1,7 +1,7 @@
 
-|kotlin:S1135"2Complete the task associated to this TODO comment.(‹Ûäƒúÿÿÿÿ8“œ¶ðï2J$dc274407-ea3a-4b67-95e9-178ef93fb213
-Ÿkotlin:S6532"UReplace this if expression with check(resourcesDir.exists()) { RESOURCES_ERROR_MSG }.(Çƒ¤¾ÿÿÿÿÿ8™œ¶ðï2J$2eae8f32-0533-4cf4-a2eb-33165f34de4f
-—kotlin:S6532q"RReplace this if expression with check(eofIndex != -1) { "%EOF not found in PDF" }.(×Óâ’8™œ¶ðï2J$2f23c137-710f-49c8-9994-99e2153315a7
-¹kotlin:S6532‡"íReplace this if expression with require(!(originalBytes.size < 10 || originalBytes[0] != 'I'.code.toByte() ||
-            originalBytes[1] != 'D'.code.toByte() || originalBytes[2] != '3'.code.toByte())) { "No ID3v2 header in MP3 file" }.(Ëæ¹«üÿÿÿÿ8šœ¶ðï2J$d4c9959d-551d-4bd9-bcb2-93dc78917809
-Ìkotlin:S6532Ÿ"€Replace this if expression with require(bytes.take(3).toByteArray().contentEquals(id3Header)) { "No ID3v2 header in MP3 file" }.(¨ùçùÿÿÿÿ8šœ¶ðï2J$34c3b3f3-44c5-4671-9bd7-c506f3a49516
+Vkotlin:S1135"2Complete the task associated to this TODO comment.(‹Ûäƒúÿÿÿÿ8ßîèÌð2
+ykotlin:S6532"UReplace this if expression with check(resourcesDir.exists()) { RESOURCES_ERROR_MSG }.(Çƒ¤¾ÿÿÿÿÿ8åîèÌð2
+qkotlin:S6532q"RReplace this if expression with check(eofIndex != -1) { "%EOF not found in PDF" }.(×Óâ’8æîèÌð2
+“kotlin:S6532‡"íReplace this if expression with require(!(originalBytes.size < 10 || originalBytes[0] != 'I'.code.toByte() ||
+            originalBytes[1] != 'D'.code.toByte() || originalBytes[2] != '3'.code.toByte())) { "No ID3v2 header in MP3 file" }.(Ëæ¹«üÿÿÿÿ8çîèÌð2
+¦kotlin:S6532Ÿ"€Replace this if expression with require(bytes.take(3).toByteArray().contentEquals(id3Header)) { "No ID3v2 header in MP3 file" }.(¨ùçùÿÿÿÿ8çîèÌð2

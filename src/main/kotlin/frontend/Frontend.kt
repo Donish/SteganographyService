@@ -4,15 +4,13 @@ import config.S3Gateway
 import config.VaultGateway
 import factories.StegoEngineFactory
 import org.apache.commons.codec.digest.DigestUtils
-import steganography.SteganographyService
 import java.awt.BorderLayout
 import java.awt.event.ActionEvent
 import java.io.File
 import javax.swing.*
 import javax.swing.filechooser.FileNameExtensionFilter
 
-// todo: добавление ключа секрета
-// todo: переделать extract: секрет должен вытаскиваться по ключу
+
 fun createUi() {
     val frame = JFrame("Stego Vault")
     frame.defaultCloseOperation = JFrame.EXIT_ON_CLOSE
